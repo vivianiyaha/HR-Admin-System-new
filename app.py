@@ -89,29 +89,6 @@ MODULES = [
     },
 ]
 
-left_col, right_col = st.columns(2)
-
-for i, mod in enumerate(MODULES):
-    col = left_col if i % 2 == 0 else right_col
-
-    with col:
-        # Only show modules the user's role can access
-        if has_access(mod["key"]):
-            st.markdown(f"""
-            <div class="card">
-                <h3>{mod['icon']} {mod['title']}</h3>
-                <p>{mod['desc']}</p>
-            </div>
-            """, unsafe_allow_html=True)
-            st.link_button(mod["btn"], mod["url"], use_container_width=True)
-        else:
-            st.markdown(f"""
-            <div class="card" style="opacity:0.45;border-left-color:#d1d5db;">
-                <h3>{mod['icon']} {mod['title']}</h3>
-                <p>{mod['desc']}</p>
-                <p style="color:#9ca3af;font-size:13px;margin-top:8px;">⛔ Not available for your role</p>
-            </div>
-            """, unsafe_allow_html=True)
 
 # ─────────────────────────────────────────────
 # FOOTER
