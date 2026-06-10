@@ -1,0 +1,48 @@
+name: Keep Apps Alive
+
+on:
+  schedule:
+    # Runs every 14 minutes — keeps all Streamlit apps awake on free tier
+    - cron: "*/14 * * * *"
+  workflow_dispatch:   # allow manual trigger from GitHub UI
+
+jobs:
+  ping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+
+    steps:
+      - name: Ping HR Management Hub
+        run: |
+          curl -sSf --max-time 15 \
+            -A "GitHubActions-KeepAlive" \
+            "${{ secrets.MAIN_APP_URL || 'https://hr-management-systemm.streamlit.app/' }}" \
+            -o /dev/null -w "Main Hub: %{http_code}\n" || true
+
+      - name: Ping Attendance App
+        run: |
+          curl -sSf --max-time 15 \
+            -A "GitHubActions-KeepAlive" \
+            "${{ secrets.ATTENDANCE_URL || 'https://staff-attendance.streamlit.app/' }}" \
+            -o /dev/null -w "Attendance: %{http_code}\n" || true
+
+      - name: Ping Business Appraisal App
+        run: |
+          curl -sSf --max-time 15 \
+            -A "GitHubActions-KeepAlive" \
+            "${{ secrets.BUSINESS_URL || 'https://business-department.streamlit.app/' }}" \
+            -o /dev/null -w "Business: %{http_code}\n" || true
+
+      - name: Ping Staff Appraisal App
+        run: |
+          curl -sSf --max-time 15 \
+            -A "GitHubActions-KeepAlive" \
+            "${{ secrets.STAFF_URL || 'https://staff-performance.streamlit.app/' }}" \
+            -o /dev/null -w "Staff: %{http_code}\n" || true
+
+      - name: Ping Admin Panel App
+        run: |
+          curl -sSf --max-time 15 \
+            -A "GitHubActions-KeepAlive" \
+            "${{ secrets.ADMIN_URL || 'https://management-panel.streamlit.app/' }}" \
+            -o /dev/null -w "Admin: %{http_code}\n" || true
