@@ -1,0 +1,22 @@
+{
+  "_comment": "Development accounts. In production, set USER_ACCOUNTS env var with this JSON (use hashed passwords). Generate hashes via: python -c \"import hashlib,os; print(hashlib.sha256(('hr_system_default_salt_2024'+'YourPassword').encode()).hexdigest())\"",
+
+  "admin": {
+    "password_hash": "5b92374b5c90e4ff4e3bc7cd59e2e2dd02edd89f2eee62c3bf6c5d10dde39649",
+    "role": "admin",
+    "name": "System Administrator",
+    "email": "admin@cardstel.com"
+  },
+  "hr.manager": {
+    "password_hash": "a4b8e1a3c6c21e2d0a8f1c2e5b9d3f7c6a0e4b8d2f6a0c4e8b2d6f0a4c8e2b6",
+    "role": "hr_manager",
+    "name": "HR Manager",
+    "email": "hr@cardstel.com"
+  },
+  "dept.manager": {
+    "password_hash": "c8d2e6f0a4b8e2c6d0e4f8a2b6c0d4e8f2a6b0c4d8e2f6a0b4c8d2e6f0a4b8",
+    "role": "department_manager",
+    "name": "Department Manager",
+    "email": "dept@cardstel.com"
+  }
+}
