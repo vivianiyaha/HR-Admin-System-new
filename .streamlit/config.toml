@@ -1,0 +1,21 @@
+[theme]
+primaryColor       = "#ff6b00"
+backgroundColor    = "#ffffff"
+secondaryBackgroundColor = "#f8f9fa"
+textColor          = "#111827"
+font               = "sans serif"
+
+[server]
+# Keeps the app alive by not sleeping on inactivity (requires Streamlit Community Cloud or paid tier)
+# On Community Cloud free tier, use a keep-alive ping service (see README)
+headless         = true
+enableCORS       = false
+enableXsrfProtection = true
+maxUploadSize    = 200
+
+[browser]
+gatherUsageStats = false
+serverAddress    = "0.0.0.0"
+
+[runner]
+magicEnabled = false
