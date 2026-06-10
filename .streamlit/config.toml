@@ -1,3 +1,4 @@
+PASSWORD_SALT = "cardstel_hr_salt_2026"
 [theme]
 primaryColor       = "#ff6b00"
 backgroundColor    = "#ffffff"
