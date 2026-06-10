@@ -13,7 +13,7 @@ if ROOT not in sys.path:
 
 import streamlit as st
 
-from auth import require_auth, get_current_user, has_access, ROLES
+
 from utils.ui import inject_global_css, render_user_bar
 
 # ─────────────────────────────────────────────
